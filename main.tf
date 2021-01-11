@@ -27,6 +27,8 @@
     vpc_security_group_ids = [ "${aws_security_group.acesso-ssh.id}" ]
   }
 
+  
+  /* 
    resource "aws_s3_bucket" "dev4" {
   bucket = "mybucket-dev4"
   acl    = "private"
@@ -34,8 +36,7 @@
   tags = {
     Name = "mybucket-dev4"
    }
- }
-   
+ }   
    resource "aws_instance" "dev4" {
     ami = "ami-026c8acd92718196b"
     instance_type = "t2.micro"
@@ -46,8 +47,9 @@
     vpc_security_group_ids = ["${aws_security_group.acesso-ssh.id}"]
     depends_on = [aws_s3_bucket.dev4]
  }
+ */
 
-  resource "aws_instance" "dev5" {
+    resource "aws_instance" "dev5" {
     ami = var.amis["us-east-1"]
     instance_type = "t2.micro"
     key_name = var.key_name
