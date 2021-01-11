@@ -27,6 +27,15 @@
     vpc_security_group_ids = [ "${aws_security_group.acesso-ssh.id}" ]
   }
 
+  resource "aws_s3_bucket" "homologacao" {
+  bucket = "terraformlab-homologacao"
+  acl    = "private"
+
+  tags = {
+    Name = "terraformlab-homologacao"
+   }
+ } 
+
   
   /* 
    resource "aws_s3_bucket" "dev4" {
